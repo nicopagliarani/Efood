@@ -2,11 +2,15 @@
 <form action="/signup" method="post">
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Your Username</label>
-    <input name="username" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <input name="username" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your user name">
     </div>
+      <div class="mb-3">
+    <label  class="form-label">Full name</label>
+    <input name="fullName" type="text" class="form-control" id="fullnameId" placeholder="Enter your full name">
+  </div>
   <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label">Password</label>
-    <input name="password" type="password" class="form-control" id="exampleInputPassword1">
+    <input name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter your password">
   </div>
 
   <a href="/login"> <button type="submit" class="btn btn-primary">Sign up</button></a>
