@@ -2,7 +2,7 @@ const router = require("express").Router();
 const axios = require("axios");
 const async = require("hbs/lib/async");
 const { RecipeSearchClient } = require("edamam-api");
-//hello
+//HELLO
 /* GET home page */
 router.get("/", async (req, res, next) => {
   res.render("index");
