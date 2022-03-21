@@ -1,5 +1,6 @@
 // We reuse this import in order to have access to the `body` property in requests
 const express = require("express");
+const session = require('express-session')
 
 // ℹ️ Responsible for the messages you see in the terminal as requests are coming in
 // https://www.npmjs.com/package/morgan
@@ -19,6 +20,27 @@ const path = require("path");
 
 // Middleware configuration
 module.exports = (app) => {
+  app.set("trust proxy", 1);
+
+  app.use((req, res, next) => {
+    req.myOwnCustomKey = "hello world";
+    next();
+  });
+
+  app.use(
+    session({
+      secret: process.env.SESSION_SECRET,
+      resave: false,
+      saveUninitialized: true,
+      cookie: {
+        sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+        secure: process.env.NODE_ENV === "production",
+        httpOnly: true,
+        maxAge: 600000, // 60 * 1000 ms * 10 === 10 min
+      },
+    })
+  );
+
   // In development environment the app logs
   app.use(logger("dev"));
 
