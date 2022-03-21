@@ -1,6 +1,11 @@
 const router = require("express").Router();
+<<<<<<< HEAD
 const axios = require("axios");
 const async = require("hbs/lib/async");
+=======
+const express = require("express");
+
+>>>>>>> origin/nicolò
 
 /* GET home page */
 router.get("/", async (req, res, next) => {
@@ -27,6 +32,8 @@ router.post("/search", async (req, res) => {
 
   console.log(responseApi.data.hits[0].recipe);
 });
+
+
 
 module.exports = router;
 
