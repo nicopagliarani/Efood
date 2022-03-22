@@ -10,4 +10,11 @@
     {{/each}}
     <p>For more specific information :</p>
     <a href="{{this.recipe.url}}">{{this.recipe.url}}</a>
+
+    <form action="/saveRecipe" method="POST">
+    <input type="hidden" name="name" value="this.text">
+    <input type="hidden" name="image" value="this.recipe.image">
+    <input type="hidden" name="url" value="this.recipe.url">
+    <button type="submit">Add to fav</button>
+    </form>
 {{/each}}
