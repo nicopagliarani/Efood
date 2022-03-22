@@ -1,6 +1,9 @@
 // We reuse this import in order to have access to the `body` property in requests
 const express = require("express");
 const session = require('express-session')
+const MongoStore = require('connect-mongo')
+const MONGO_URI = process.env.MONGODB_URI || "mongodb://localhost/Efood";
+
 
 // ℹ️ Responsible for the messages you see in the terminal as requests are coming in
 // https://www.npmjs.com/package/morgan
@@ -38,7 +41,9 @@ module.exports = (app) => {
         httpOnly: true,
         maxAge: 600000, // 60 * 1000 ms * 10 === 10 min
       },
-    })
+      store: MongoStore.create({
+        mongoUrl: MONGO_URI
+      })})
   );
 
   // In development environment the app logs

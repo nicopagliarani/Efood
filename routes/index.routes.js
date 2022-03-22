@@ -2,6 +2,8 @@ const router = require("express").Router();
 const axios = require("axios");
 const async = require("hbs/lib/async");
 const { RecipeSearchClient } = require("edamam-api");
+//hello
+/* GET home page */
 
 const client = new RecipeSearchClient({
   appId: process.env.CLIENT_ID,
