@@ -33,42 +33,18 @@
   </div>
 </nav>
 <img src="/images/healthy-food.jpg" class="img-fluid" alt="Healthy-food">
-<h1>Recommendations</h1>
-<div class="card-profile">
-<div class="card" style="width: 18rem;">
-  <img src="/images/carbonara.jpg" class="card-img-top" alt="Carbonara img">
-  <div class="card-body">
-    <h5 class="card-title">Carbonara</h5>
-    <p class="card-text">Discover how to prepare Carbonara!</p>
-    <a href="#" class="btn btn-success">Check Recipe</a>
-  </div>
-</div>
-<div class="card" style="width: 18rem;">
-  <img src="/images/crepes.jpg" class="card-img-top" alt="Crepes img">
-  <div class="card-body">
-    <h5 class="card-title">Crepes</h5>
-    <p class="card-text">Discover how to prepare Crepes!</p>
-    <a href="#" class="btn btn-success">Check Recipe</a>
-  </div>
-</div>
-<div class="card" style="width: 18rem;">
-  <img src="/images/lasagna.jpg" class="card-img-top" alt="Lasagna img">
-  <div class="card-body">
-    <h5 class="card-title">Lasagna</h5>
-    <p class="card-text">Discover how to prepare Lasagna!</p>
-    <a href="#" class="btn btn-success">Check Recipe</a>
-  </div>
-</div>
-<div class="card" style="width: 18rem;">
-  <img src="/images/omelette.jpg" class="card-img-top" alt="Omelette img">
-  <div class="card-body">
-    <h5 class="card-title">Omelette</h5>
-    <p class="card-text">Discover how to prepare Omelette!</p>
-    <a href="#" class="btn btn-success">Check Recipe</a>
-  </div>
-</div>
+<h1>Sort by countries</h1>
+<div>
+  <form action="/usa" method="POST"><button type="submit"><img src="/images/usaFlag.png" alt="Usa Flag" class="flags"  ></button></form>
+  
+  <form action="/indian" method="POST"><a href="/indian"><img src="/images/idianFlag.png" alt="Indian Flag" class="flags"></a></form>
+
+  <form action="/italien" method="POST"><a href="/italien"><img src="/images/italieFlag.png" alt="Usa Flag" class="flags"  ></a></form>
+
+  <form action="/mexican" method="POST">    <a href="/mexican"><img src="/images/mexican.png" alt="Mexican Flag" class="flags"></a></form>
 </div>
 <div class="d-flex justify-content-center">
+
 <form action="/logout" method="post">
 <button class="btn btn-primary" type="submit">Logout</button>
 </form>
