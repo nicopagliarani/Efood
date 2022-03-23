@@ -36,7 +36,7 @@ router.post("/search", async (req, res) => {
 router.post("/usa", async (req, res) => {
   const results = await client.search({ query: "American" });
   const apiPath = results.hits;
-  console.log("Inside API =>", apiPath);
+  // console.log("Inside API =>", apiPath);
   res.render("usa", { apiPath });
 });
 
@@ -86,6 +86,22 @@ router.post("/british", async (req, res) => {
   const results = await client.search({ query: "British" });
   const apiPath = results.hits;
   res.render("british", { apiPath });
+  return;
+});
+//     VEGAN & VEGETERIAN
+
+router.get("/vegetarian", async (req, res) => {
+  const results = await client.search({ query: "Vegetarian" });
+  const apiPath = results.hits;
+  console.log("Inside API =>", apiPath);
+  res.render("vegetarian", { apiPath });
+  return;
+});
+router.get("/vegan", async (req, res) => {
+  const results = await client.search({ query: "Vegan" });
+  const apiPath = results.hits;
+  console.log("Inside API =>", apiPath);
+  res.render("vegan", { apiPath });
   return;
 });
 module.exports = router;
