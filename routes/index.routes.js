@@ -11,11 +11,13 @@ const client = new RecipeSearchClient({
 });
 
 router.get("/", async (req, res, next) => {
-  res.render("index"); return
+  res.render("index");
+  return;
 });
 
 router.get("/search", (req, res) => {
-  res.render("SearchRecipes"); return
+  res.render("SearchRecipes");
+  return;
 });
 
 router.post("/search", async (req, res) => {
@@ -26,28 +28,36 @@ router.post("/search", async (req, res) => {
   //const recipes = search.hits.recipe.ingredients;
   const ApiValues = search.hits; //Storing or position
   //console.log("the name :", ApiValues);
-  res.render("SearchRecipes", { ApiValues }); return //Send the api to the hbs to iterate over
-});
-
-router.get("/usa", (req, res) => {
-  res.render("usa"); return
+  res.render("SearchRecipes", { ApiValues });
+  return; //Send the api to the hbs to iterate over
 });
 
 router.post("/usa", async (req, res) => {
-  //const results = await client.search({ cuisineType: "American" }); //Search through the api
-  //console.log(results.hits); //See where we are in the API
+  const results = await client.search({ query: 'American' });
+  const apiPath = results.hits;
+  console.log("Inside API =>", apiPath);
+  res.render("usa", {apiPath});
 });
 
-router.get("/indian", (req, res) => {
-  res.render("indian"); return
+router.post("/indian", async (req, res) => {
+  //const results = await client.search({ query: 'Indian' });
+  //const ApiValues = search.hits;
+  res.render("indian");
+  return;
 });
 
-router.get("/italien", (req, res) => {
-  res.render("italien"); return
+router.post("/italian", async (req, res) => {
+  const results = await client.search({ query: 'Italian' });
+  //const ApiValues = search.hits;
+  res.render("italian");
+  return;
 });
 
-router.get("/mexican", (req, res) => {
-  res.render("mexican"); return
+router.post("/mexican", async (req, res) => {
+  //const results = await client.search({ query: 'Mexican' });
+  //const ApiValues = search.hits;
+  res.render("mexican");
+  return;
 });
 
 module.exports = router;
