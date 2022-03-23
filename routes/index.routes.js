@@ -32,31 +32,32 @@ router.post("/search", async (req, res) => {
   return; //Send the api to the hbs to iterate over
 });
 
+//                      FLAGS
 router.post("/usa", async (req, res) => {
-  const results = await client.search({ query: 'American' });
+  const results = await client.search({ query: "American" });
   const apiPath = results.hits;
   console.log("Inside API =>", apiPath);
-  res.render("usa", {apiPath});
+  res.render("usa", { apiPath });
 });
 
 router.post("/indian", async (req, res) => {
-  //const results = await client.search({ query: 'Indian' });
-  //const ApiValues = search.hits;
-  res.render("indian");
+  const results = await client.search({ query: "Indian" });
+  const apiPath = results.hits;
+  res.render("indian", { apiPath });
   return;
 });
 
 router.post("/italian", async (req, res) => {
-  const results = await client.search({ query: 'Italian' });
-  //const ApiValues = search.hits;
-  res.render("italian");
+  const results = await client.search({ query: "Italian" });
+  const apiPath = results.hits;
+  res.render("italian", { apiPath });
   return;
 });
 
 router.post("/mexican", async (req, res) => {
-  //const results = await client.search({ query: 'Mexican' });
-  //const ApiValues = search.hits;
-  res.render("mexican");
+  const results = await client.search({ query: "Mexican" });
+  const apiPath = results.hits;
+  res.render("mexican", { apiPath });
   return;
 });
 

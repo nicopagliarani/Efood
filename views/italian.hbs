@@ -18,7 +18,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/">Efood</a>
+              <a class="nav-link active" style="color: #ffffff"aria-current="page" href="/">Efood</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" style="color: #ffffff" href="/profile">Profile</a>
@@ -28,7 +28,7 @@
             </li>
 
           </ul>
-          <form class="d-flex" style="color: #ffffff" action="/search" method="post">
+          <form class="d-flex" action="/search" method="post">
             <input
               class="form-control me-2"
               type="search"
@@ -44,3 +44,14 @@
         </div>
       </div>
     </nav>
+<h1>Italian recipies</h1>
+{{#each apiPath}}
+    <h1> {{this.recipe.label}} </h1>
+    <img src="{{this.recipe.image}}" alt="Image">
+    <h2>Ingredients</h2>
+    {{#each this.recipe.ingredients}}
+<p>-{{this.text}}</p>
+{{/each}}
+<h4>For more detail on the recipe :</h4>
+<a href="{{this.recipe.url}}">{{this.recipe.url}}</a>
+{{/each}}
