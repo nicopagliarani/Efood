@@ -84,7 +84,6 @@ router.post("/saveRecipe", async (req, res) => {
   await user.save();
   res.redirect("/favorites");
 });
-
 router.get("/favorites", requireLogin, async (req, res) => {
   const userId = req.session.currentUser._id;
   const user = await User.findById({ _id: userId }).populate("favoriteRecipes");
