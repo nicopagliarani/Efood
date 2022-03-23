@@ -87,11 +87,11 @@ router.post("/saveRecipe", async (req, res) => {
   res.redirect("/search");
 });
 
-router.get("/favorites", (req, res) => {
-  const showFavorites = req.body.currentUser.favoriteRecipes;
-  res.render("favorites", { showFavorites });
-  res.render("favorites");
-});
+// router.get("/favorites", (req, res) => {
+//   const showFavorites = req.body.currentUser.favoriteRecipes;
+//   res.render("favorites", { showFavorites });
+//   res.render("favorites");
+// });
 
 // router.post("/favorites", async (req, res) => {
 //   console.log(showFavorites);
