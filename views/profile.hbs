@@ -1,15 +1,70 @@
+<nav
+      id="navbar-profile"
+      class="navbar navbar-expand-lg navbar-light bg-secondary"
+    >
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">🍽</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active"style="color: #ffffff" aria-current="page" href="/">Efood</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link"style="color: #ffffff" href="/profile">Profile</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link"style="color: #ffffff" href="/favorites">Favorites</a>
+            </li>
+
+          </ul>
+          <form class="d-flex" action="/search" method="post">
+            <input
+              class="form-control me-2"
+              type="search"
+              name="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+            <button
+              class="btn btn-success searchBar"
+              type="submit"
+            >Search</button>
+          </form>
+        </div>
+      </div>
+    </nav>
 <img src="/images/healthy-food.jpg" class="img-fluid" alt="Healthy-food">
-<h1>Sort by countries</h1>
-  <form action="/usa" method="post"><button type="submit" name="usa" ><img src="/images/usaFlag.png" alt="Usa Flag" class="flags"  ></button>USA</form>
-  
-  <form action="/indian" method="post"><button type="submit"><img src="/images/idianFlag.png" alt="Indian Flag" class="flags"></button></form>
-
-  <form action="/italian" method="post"><button type="submit"><img src="/images/italieFlag.png" alt="Italian Flag" class="flags" ></button></form>
-
-  <form action="/mexican" method="post"><button type="submit"><img src="/images/mexican.png" alt="Mexican Flag" class="flags"></button></form>
+<div>
+  <div class="container">
+  <div class="row">
+    <div class="col">
+      <form action="/usa" method="post"><button type="submit" name="usa" ><img src="/images/usaFlag.png" alt="Usa Flag" class="flags"  ></button>USA</form>
+    </div>
+    <div class="col">
+      <form action="/indian" method="post"><button type="submit"><img src="/images/idianFlag.png" alt="Indian Flag" class="flags"></button></form>
+    </div>
+    <div class="col">
+      <form action="/italian" method="post"><button type="submit"><img src="/images/italieFlag.png" alt="Italian Flag" class="flags" ></button></form>
+    </div>
+    <div class="col">
+      <form action="/mexican" method="post"><button type="submit"><img src="/images/mexican.png" alt="Mexican Flag" class="flags"></button></form>
+    </div>
+  </div>
+</div>
+  </div>
 <div class="d-flex justify-content-center">
-
 <form action="/logout" method="post">
-<button class="btn btn-primary" type="submit">Logout</button>
+<button class="btn btn-success" type="submit">Logout</button>
 </form>
 </div>
