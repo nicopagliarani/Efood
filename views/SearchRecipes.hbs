@@ -42,18 +42,12 @@
   </div>
 </nav>
 {{#each ApiValues}}
-  <h1>{{this.recipe.label}}</h1>
+<h1>{{this.recipe.label}}</h1>
 <img src="{{this.recipe.image}}" alt="recipe image" />
 <h2>Ingredients</h2>
-    
-
     {{#each this.recipe.ingredients}}
 <p>-{{this.text}}</p>
-
-      {{!-- <p> {{this.quantity}} </p> --}}
-      {{!-- <p> {{this.measure}} </p>
-        <p> {{this.food}} </p> --}}
-    {{/each}}
+{{/each}}
     <form action="/saveRecipe" method="POST">
       <input type="hidden" name="title" value="{{this.recipe.label}}" />
       <input type="hidden" name="image" value="{{this.recipe.image}}" />
