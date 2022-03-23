@@ -67,4 +67,25 @@ router.post("/japanese", async (req, res) => {
   res.render("japanese", { apiPath });
   return;
 });
+
+router.post("/french", async (req, res) => {
+  const results = await client.search({ query: "French" });
+  const apiPath = results.hits;
+  res.render("french", { apiPath });
+  return;
+});
+
+router.post("/chinese", async (req, res) => {
+  const results = await client.search({ query: "Chinese" });
+  const apiPath = results.hits;
+  res.render("chinese", { apiPath });
+  return;
+});
+
+router.post("/british", async (req, res) => {
+  const results = await client.search({ query: "British" });
+  const apiPath = results.hits;
+  res.render("british", { apiPath });
+  return;
+});
 module.exports = router;
