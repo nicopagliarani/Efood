@@ -1,1 +1,5 @@
-<h1>Usa Recipes :</h1>
+<h1>Americain Recipes :</h1>
+{{#each apiPath}}
+    <h1> {{this.recipe.label}} </h1>
+    <img src="{{this.recipe.image}}" alt="Image">
+{{/each}}

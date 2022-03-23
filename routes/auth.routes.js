@@ -2,11 +2,11 @@ const router = require("express").Router();
 const User = require("../models/User.model");
 const Recipe = require("../models/Recipe.model");
 const bcrypt = require("bcrypt");
+const { populate } = require("../models/User.model");
 const {
   requireLogin,
   requireToBeLoggedOut,
 } = require("../middlewares/route-guard");
-const { populate } = require("../models/User.model");
 
 router.get("/signup", (req, res, next) => {
   res.render("signup");
@@ -100,5 +100,6 @@ router.get("/favorites", async (req, res) => {
   res.render("favorites", { showFavorites });
   return;
 });
+
 
 module.exports = router;

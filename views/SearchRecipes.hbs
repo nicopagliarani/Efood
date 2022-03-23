@@ -8,7 +8,7 @@
         <p> {{this.food}} </p>
        <!-- <img src="{{this.image}}" alt="image"> -->
     {{/each}}
-            <form action="/saveRecipe" method="POST">
+        <form action="/saveRecipe" method="POST">
             <input type="hidden" name="title" value="{{this.recipe.label}}">
             <input type="hidden" name ="image" value="{{this.recipe.image}}">
             <input type="hidden" name ="url" value="{{this.recipe.url}}">
