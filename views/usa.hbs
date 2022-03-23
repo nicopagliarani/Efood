@@ -2,4 +2,59 @@
 {{#each apiPath}}
     <h1> {{this.recipe.label}} </h1>
     <img src="{{this.recipe.image}}" alt="Image">
+    <h2>Ingredients</h2>
+    {{#each this.recipe.ingredients}}
+<p>-{{this.text}}</p>
 {{/each}}
+<h4>For more detail on the recipe :</h4>
+<a href="{{this.recipe.url}}">{{this.recipe.url}}</a>
+{{/each}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+apiPath
