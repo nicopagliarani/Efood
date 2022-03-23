@@ -39,12 +39,9 @@ router.get("/login", (req, res, next) => {
 });
 router.post("/login", async (req, res) => {
   try {
-    //console.log(req.body);
     const user = await User.findOne({ username: req.body.username });
-    //console.log(user);
     const hashFromDb = user.password;
     const passwordCorrect = await bcrypt.compare(req.body.password, hashFromDb);
-    //console.log(passwordCorrect ? "Yes" : "No");
     if (!passwordCorrect) {
       throw Error("Password incorrect");
     }
@@ -68,29 +65,18 @@ router.get("/saveRecipe", (req, res) => {
 });
 
 router.post("/saveRecipe", async (req, res) => {
-  //console.log(req.body.title);
   const newRecipe = new Recipe({
     name: req.body.title,
     image: req.body.image,
     url: req.body.url,
   });
-
-  //let currentUser = User.findById(req.session.currentUser.id);
-  await newRecipe.save();
+await newRecipe.save();
   const userId = req.session.currentUser._id;
   const user = await User.findById( {_id:userId} );
   console.log(newRecipe._id);
   user.favoriteRecipes.push(newRecipe._id)
  await user.save();
-
-
-  //await .populate(favoriteRecipes);
-
-  //console.log("here is NEWRECIPES :", newRecipe);
-
-  //console.log(favoriteRecipes);
-  // populate(favoriteRecipes)
-  res.redirect("/search");
+ res.redirect("/favorites");
 });
 
 router.get("/favorites",  async (req, res) => {

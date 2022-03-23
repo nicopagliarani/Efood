@@ -1,5 +1,17 @@
+
 {{#each showFavorites}}
-    <h1> {{this.name}} </h1>
-    <img src="{{this.image}}" alt="image">
-    <p>{{this.url}}</p>
-{{/each}}
+<div class="d-inline-flex p-2">
+<div class="card" style="width: 18rem;">
+  <div class="d-flex justify-content-center">
+<h4 class="card-title">{{this.name}}</h4>
+</div>
+  <img src="{{this.image}}" class="card-img-top" alt="Image">
+  <div class="card-body">
+    <div class="d-flex justify-content-center">
+    <a href="{{this.url}}" class="btn btn-success">See your recipe</a>
+    </div>
+  </div>
+</div>
+</div>
+
+    {{/each}}
