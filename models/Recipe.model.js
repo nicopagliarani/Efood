@@ -1,4 +1,5 @@
 const { Schema, model } = require("mongoose");
+const User = require("./User.model");
 
 const recipeSchema = new Schema({
   name: {
@@ -6,10 +7,12 @@ const recipeSchema = new Schema({
     unique: true,
     required: true,
   },
-  id: {
+  description: {
     type: String,
-    required: true,
-    unique: true,
+  },
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
   },
 });
 
