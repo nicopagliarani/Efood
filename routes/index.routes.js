@@ -61,4 +61,10 @@ router.post("/mexican", async (req, res) => {
   return;
 });
 
+router.post("/japanese", async (req, res) => {
+  const results = await client.search({ query: "Japanese" });
+  const apiPath = results.hits;
+  res.render("japanese", { apiPath });
+  return;
+});
 module.exports = router;
