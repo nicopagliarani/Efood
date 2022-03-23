@@ -88,7 +88,7 @@ router.post("/british", async (req, res) => {
   res.render("british", { apiPath });
   return;
 });
-//     VEGAN & VEGETERIAN
+//                VEGAN & VEGETERIAN
 
 router.get("/vegetarian", async (req, res) => {
   const results = await client.search({ query: "Vegetarian" });
@@ -105,3 +105,44 @@ router.get("/vegan", async (req, res) => {
   return;
 });
 module.exports = router;
+
+//                  DROP DOWN BAR
+router.get("/breakfast", async (req, res) => {
+  const results = await client.search({ query: "Breakfast" });
+  const apiPath = results.hits;
+  console.log("Inside API =>", apiPath);
+  res.render("breakfast", { apiPath });
+  return;
+});
+
+router.get("/lunch", async (req, res) => {
+  const results = await client.search({ query: "Lunch" });
+  const apiPath = results.hits;
+  console.log("Inside API =>", apiPath);
+  res.render("lunch", { apiPath });
+  return;
+});
+
+router.get("/dinner", async (req, res) => {
+  const results = await client.search({ query: "Dinner" });
+  const apiPath = results.hits;
+  console.log("Inside API =>", apiPath);
+  res.render("dinner", { apiPath });
+  return;
+});
+
+router.get("/snack", async (req, res) => {
+  const results = await client.search({ query: "Snack" });
+  const apiPath = results.hits;
+  console.log("Inside API =>", apiPath);
+  res.render("snack", { apiPath });
+  return;
+});
+
+router.get("/teatime", async (req, res) => {
+  const results = await client.search({ query: "Teatime" });
+  const apiPath = results.hits;
+  console.log("Inside API =>", apiPath);
+  res.render("teatime", { apiPath });
+  return;
+});

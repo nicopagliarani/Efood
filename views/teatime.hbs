@@ -58,37 +58,14 @@
     </div>
   </div>
 </nav>
-<img src="/images/healthy-food.jpg" class="img-fluid" alt="Healthy-food">
-<div class="container">
-  <div class="row">
-    <div class="col">
-      <form action="/usa" method="post"><button type="submit" name="usa" ><img src="/images/usaFlag.png" alt="Usa Flag" class="flags"  ></button></form>
-    </div>
-    <div class="col">
-      <form action="/indian" method="post"><button type="submit"><img src="/images/idianFlag.png" alt="Indian Flag" class="flags"></button></form>
-    </div>
-    <div class="col">
-      <form action="/italian" method="post"><button type="submit"><img src="/images/italieFlag.png" alt="Italian Flag" class="flags" ></button></form>
-    </div>
-    <div class="col">
-      <form action="/mexican" method="post"><button type="submit"><img src="/images/mexican.png" alt="Mexican Flag" class="flags"></button></form>
-    </div>
-    <div class="col">
-      <form action="/japanese" method="post"><button type="submit"><img src="/images/japan.png" alt="Japanese Flag" class="flags"></button></form>
-    </div>
-    <div class="col">
-      <form action="/french" method="post"><button type="submit"><img src="/images/french.png" alt="French Flag" class="flags"></button></form>
-    </div>
-    <div class="col">
-      <form action="/chinese" method="post"><button type="submit"><img src="/images/chinese.png" alt="Chinese Flag" class="flags"></button></form>
-    </div>
-    <div class="col">
-      <form action="/british" method="post"><button type="submit"><img src="/images/british.png" alt="British Flag" class="flags"></button></form>
-    </div>
-  </div>
-</div>
-<div class="d-flex justify-content-center">
-<form action="/logout" method="post">
-<button class="btn btn-success" type="submit">Logout</button>
-</form>
-</div>
+<h1>Teatime :</h1>
+{{#each apiPath}}
+    <h1> {{this.recipe.label}} </h1>
+    <img src="{{this.recipe.image}}" alt="Image">
+    <h2>Ingredients</h2>
+    {{#each this.recipe.ingredients}}
+<p>-{{this.text}}</p>
+{{/each}}
+<h4>For more detail on the recipe :</h4>
+<a href="{{this.recipe.url}}">{{this.recipe.url}}</a>
+{{/each}}
