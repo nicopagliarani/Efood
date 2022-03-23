@@ -92,7 +92,7 @@ router.post("/saveRecipe", async (req, res) => {
   res.redirect("/search");
 });
 
-router.get("/favorites", async (req, res) => {
+router.get("/favorites", requireLogin, async (req, res) => {
   const userId = req.session.currentUser._id;
   const user = await User.findById({ _id: userId }).populate("favoriteRecipes");
   showFavorites = user.favoriteRecipes;
@@ -100,6 +100,5 @@ router.get("/favorites", async (req, res) => {
   res.render("favorites", { showFavorites });
   return;
 });
-
 
 module.exports = router;
