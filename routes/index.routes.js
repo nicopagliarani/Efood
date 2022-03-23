@@ -11,11 +11,11 @@ const client = new RecipeSearchClient({
 });
 
 router.get("/", async (req, res, next) => {
-  res.render("index");
+  res.render("index"); return
 });
 
 router.get("/search", (req, res) => {
-  res.render("SearchRecipes");
+  res.render("SearchRecipes"); return
 });
 
 router.post("/search", async (req, res) => {
@@ -25,12 +25,12 @@ router.post("/search", async (req, res) => {
   //console.log(search.hits); //See where we are in the API
   //const recipes = search.hits.recipe.ingredients;
   const ApiValues = search.hits; //Storing or position
-  console.log("the name :", ApiValues);
-  res.render("SearchRecipes", { ApiValues }); //Send the api to the hbs to iterate over
+  //console.log("the name :", ApiValues);
+  res.render("SearchRecipes", { ApiValues }); return //Send the api to the hbs to iterate over
 });
 
 router.get("/usa", (req, res) => {
-  res.render("usa");
+  res.render("usa"); return
 });
 
 router.post("/usa", async (req, res) => {
@@ -39,15 +39,15 @@ router.post("/usa", async (req, res) => {
 });
 
 router.get("/indian", (req, res) => {
-  res.render("indian");
+  res.render("indian"); return
 });
 
 router.get("/italien", (req, res) => {
-  res.render("italien");
+  res.render("italien"); return
 });
 
 router.get("/mexican", (req, res) => {
-  res.render("mexican");
+  res.render("mexican"); return
 });
 
 module.exports = router;

@@ -2,11 +2,15 @@ const router = require("express").Router();
 const User = require("../models/User.model");
 const Recipe = require("../models/Recipe.model");
 const bcrypt = require("bcrypt");
-const { requireToBeLoggedOut } = require("../middlewares/route-guard");
+const {
+  requireLogin,
+  requireToBeLoggedOut,
+} = require("../middlewares/route-guard");
 const { populate } = require("../models/User.model");
 
 router.get("/signup", (req, res, next) => {
   res.render("signup");
+  return;
 });
 router.post("/signup", async (req, res) => {
   //console.log(req.body);
@@ -36,6 +40,7 @@ router.post("/signup", async (req, res) => {
 router.use("/login", requireToBeLoggedOut);
 router.get("/login", (req, res, next) => {
   res.render("login");
+  return;
 });
 router.post("/login", async (req, res) => {
   try {
@@ -65,6 +70,7 @@ router.post("/logout", (req, res) => {
 
 router.get("/saveRecipe", (req, res) => {
   res.render("/");
+  return;
 });
 
 router.post("/saveRecipe", async (req, res) => {
@@ -77,25 +83,22 @@ router.post("/saveRecipe", async (req, res) => {
 
   //let currentUser = User.findById(req.session.currentUser.id);
   await newRecipe.save();
+  const userId = req.session.currentUser._id;
+  const user = await User.findById({ _id: userId });
+  console.log(newRecipe._id);
+  user.favoriteRecipes.push(newRecipe._id);
+  await user.save();
 
-  //await .populate(favoriteRecipes);
-
-  //console.log("here is NEWRECIPES :", newRecipe);
-
-  //console.log(favoriteRecipes);
-  // populate(favoriteRecipes)
   res.redirect("/search");
 });
 
-// router.get("/favorites", (req, res) => {
-//   const showFavorites = req.body.currentUser.favoriteRecipes;
-//   res.render("favorites", { showFavorites });
-//   res.render("favorites");
-// });
-
-// router.post("/favorites", async (req, res) => {
-//   console.log(showFavorites);
-//   res.render("favorites", { showFavorites });
-// });
+router.get("/favorites", async (req, res) => {
+  const userId = req.session.currentUser._id;
+  const user = await User.findById({ _id: userId }).populate("favoriteRecipes");
+  showFavorites = user.favoriteRecipes;
+  console.log(showFavorites);
+  res.render("favorites", { showFavorites });
+  return;
+});
 
 module.exports = router;
