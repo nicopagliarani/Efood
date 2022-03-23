@@ -76,13 +76,13 @@ router.post("/saveRecipe", async (req, res) => {
     image: req.body.image,
     url: req.body.url,
   });
-await newRecipe.save();
+  await newRecipe.save();
   const userId = req.session.currentUser._id;
   const user = await User.findById({ _id: userId });
   console.log(newRecipe._id);
-  user.favoriteRecipes.push(newRecipe._id)
- await user.save();
- res.redirect("/favorites");
+  user.favoriteRecipes.push(newRecipe._id);
+  await user.save();
+  res.redirect("/favorites");
 });
 
 router.get("/favorites", requireLogin, async (req, res) => {
