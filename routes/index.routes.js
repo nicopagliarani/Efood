@@ -14,6 +14,10 @@ router.get("/", async (req, res, next) => {
   res.render("index");
 });
 
+router.get("/search", (req, res) => {
+  res.render("SearchRecipes");
+});
+
 router.post("/search", async (req, res) => {
   //Calling the API
   const search = await client.search({ query: req.body.search }); //Search through the api
@@ -21,6 +25,7 @@ router.post("/search", async (req, res) => {
   //console.log(search.hits); //See where we are in the API
   //const recipes = search.hits.recipe.ingredients;
   const ApiValues = search.hits; //Storing or position
+  console.log("the name :", ApiValues);
   res.render("SearchRecipes", { ApiValues }); //Send the api to the hbs to iterate over
 });
 
