@@ -1,49 +1,51 @@
 <nav
-      id="navbar-profile"
-      class="navbar navbar-expand-lg navbar-light bg-secondary"
+  id="navbar-profile"
+  class="navbar navbar-expand-lg navbar-light bg-secondary"
+>
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">🍽</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
     >
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">🍽</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active"style="color: #ffffff" aria-current="page" href="/">Efood</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link"style="color: #ffffff" href="/profile">Profile</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link"style="color: #ffffff" href="/favorites">Favorites</a>
-            </li>
-
-          </ul>
-          <form class="d-flex" action="/search" method="post">
-            <input
-              class="form-control me-2"
-              type="search"
-              name="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button
-              class="btn btn-success searchBar"
-              type="submit"
-            >Search</button>
-          </form>
-        </div>
-      </div>
-    </nav>
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active"style="color: #ffffff" aria-current="page" href="/">Efood</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"style="color: #ffffff" href="/profile">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" style="color: #ffffff"href="/favorites">Favorites</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" style="color: #ffffff" href="/vegan">Vegan</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" style="color: #ffffff" href="/vegetarian">Vegetarian</a>
+        </li>
+      </ul>
+      <form class="d-flex" action="/search" method="post">
+        <input
+          class="form-control me-2"
+          type="search"
+          name="search"
+          placeholder="Search"
+          aria-label="Search"
+        />
+        <button class="btn btn-success searchBar" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
 <img src="/images/healthy-food.jpg" class="img-fluid" alt="Healthy-food">
 <div>
   <div class="container">
@@ -60,8 +62,17 @@
     <div class="col">
       <form action="/mexican" method="post"><button type="submit"><img src="/images/mexican.png" alt="Mexican Flag" class="flags"></button></form>
     </div>
-        <div class="col">
+    <div class="col">
       <form action="/japanese" method="post"><button type="submit"><img src="/images/japan.png" alt="Japanese Flag" class="flags"></button></form>
+    </div>
+    <div class="col">
+      <form action="/french" method="post"><button type="submit"><img src="/images/french.png" alt="French Flag" class="flags"></button></form>
+    </div>
+    <div class="col">
+      <form action="/chinese" method="post"><button type="submit"><img src="/images/chinese.png" alt="Chinese Flag" class="flags"></button></form>
+    </div>
+    <div class="col">
+      <form action="/british" method="post"><button type="submit"><img src="/images/british.png" alt="British Flag" class="flags"></button></form>
     </div>
   </div>
 </div>

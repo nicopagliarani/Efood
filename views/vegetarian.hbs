@@ -30,7 +30,7 @@
           <a class="nav-link" style="color: #ffffff" href="/vegan">Vegan</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" style="color: #ffffff" href="/vegetarian">vegetarian</a>
+          <a class="nav-link" style="color: #ffffff" href="/vegetarian">Vegetarian</a>
         </li>
       </ul>
       <form class="d-flex" action="/search" method="post">
@@ -46,40 +46,14 @@
     </div>
   </div>
 </nav>
-{{#each ApiValues}}
-<div class="col d-flex justify-content-center">
-<div class="card mb-3 cardbody" style="max-width: 540px;">
-  <div class="row g-0 customrow">
-    <div class="col-md-4">
-      <img src="{{this.recipe.image}}" class="rounded-start cardimage" alt="recipe image">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body customcardbody">
-        <h5 class="card-title">{{this.recipe.label}}</h5>
-        <h5 class="card-title">Ingredients</h5>
-        {{#each this.recipe.ingredients}}
-        <p class="card-text">-{{this.text}}</p>
-        {{/each}}
-        </div>
-        </div>
-    </div>
-  </div>
-</div>
-
-    <form action="/saveRecipe" method="POST">
-      <input type="hidden" name="title" value="{{this.recipe.label}}" />
-      <input type="hidden" name="image" value="{{this.recipe.image}}" />
-      <input type="hidden" name="url" value="{{this.recipe.url}}" />
-<div class="col d-flex justify-content-center">
-      <button class="btn btn-success" type="submit">Add to your favorites</button>
-</div>
-    </form>
-<div class="col d-flex justify-content-center">
-    <h5>For more specific information :</h5>
-</div>
-<div class="col d-flex justify-content-center">
-    <a href="{{this.recipe.url}}"><button type="button" class="btn btn-success">More Information</button></a>
-  </div>
-  </div>
-  </div>
+<h1>Vegetarian recipies :</h1>
+{{#each apiPath}}
+    <h1> {{this.recipe.label}} </h1>
+    <img src="{{this.recipe.image}}" alt="Image">
+    <h2>Ingredients</h2>
+    {{#each this.recipe.ingredients}}
+<p>-{{this.text}}</p>
+{{/each}}
+<h4>For more detail on the recipe :</h4>
+<a href="{{this.recipe.url}}">{{this.recipe.url}}</a>
 {{/each}}
