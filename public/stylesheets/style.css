@@ -68,3 +68,27 @@ h1 {
   background-color: gray;
 }
 .cardbody{margin-top:100px;}
+.indexbuttons{
+  margin-top:50px;
+}
+.loginform{
+  margin-top:100px;
+}
+.signupform{
+  margin-top:100px;
+}
+.signupbackground{ background-image: url("/images/background.jpg");
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+}
+.loginbackground{background-image: url("/images/background.jpg");
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
