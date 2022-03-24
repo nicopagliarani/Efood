@@ -3,7 +3,7 @@
   class="navbar navbar-expand-lg navbar-light bg-secondary"
 >
   <div class="container-fluid">
-    <a class="navbar-brand" href="/profile">🍽</a>
+     <a class="navbar-brand logo" href="/profile"><img src="./images/EfoodLogo.png" style="width: 100px;" alt="logo"></a>
     <button
       class="navbar-toggler"
       type="button"
@@ -42,7 +42,7 @@
           </ul>
         </li>
       </ul>
-      <form class="d-flex" action="/search" method="post">
+      <form class="d-flex" action="/search" style="margin-top: 10px;" method="post">
         <input
           class="form-control me-2"
           type="search"
@@ -50,17 +50,17 @@
           placeholder="Search"
           aria-label="Search"
         />
-        <button class="btn btn-success searchBar" type="submit">Search</button>
+        <button class="btn btn-success searchBar" style="margin-right: 10px;" type="submit">Search</button>
       </form>
     </div>
   </div>
 </nav>
 <div class="col d-flex justify-content-center">
-<h1>Vegeterian Recipes :</h1>
+<h1>Vegetarian Recipes :</h1>
 </div>
 {{#each apiPath}}
 <div class="col d-flex justify-content-center">
-<div class="card mb-3 cardbody" style="max-width: 640px;">
+<div class="card mb-3 cardbody" style="width: 1000px;">
   <div class="row g-0 customrow">
     <div class="col-md-4">
       <img src="{{this.recipe.image}}" class="rounded-start cardimage" alt="recipe image">
@@ -76,6 +76,12 @@
         </div>
     </div>
   </div>
+      <form action="/saveRecipe" method="POST">
+      <input type="hidden" name="title" value="{{this.recipe.label}}" />
+      <input type="hidden" name="image" value="{{this.recipe.image}}" />
+      <input type="hidden" name="url" value="{{this.recipe.url}}" />
+    <button class="btn btn-success addToFavBtn d-flex justify-content-center" type="submit" style="margin-top: 250px; margin-left: 20px">Add to your favorites</button>
+    </form>
 </div>
 <div class="col d-flex justify-content-center">
     <h5>For more specific information :</h5>
