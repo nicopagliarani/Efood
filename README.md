@@ -3,149 +3,66 @@ Description
 Search Cooking Recipes you like.
 
 User stories
-404 - As a user I want to see a nice 404 page when I go to a page that doesn’t exist so that I know it was my fault.
-500 - As a user I want to see a nice error page when the super team screws it up so that I know that is not my fault
+404 - As a user I want to see a  404 page when I go to a page that doesn’t exist so that I know it was my fault.
 login-signup - As a user I want to see a welcome page that gives me the option to either log in as an existing user, or sign up with a new account.
 add-signup - As a user I want to sign up with my full information so that I can start seeing the recipes I'd like to prepare and eat.
-homepage - As a user I want to see the adviced recipes and searching for a recipe that I like.In the navbar I can see my favourite recipes,search a random recipe if I don't know what to cook.
-recipes-search-results - As a user I want to see the search results with a preview image, the title, the console it's for, and the price of rent per day. Also, to go back to the home page if I don't want to see that search anymore.
-game-rent-form - As a user I want to see more information about the game when I click on a certain item, the renter's general location, and to choose how many days I want to rent a game. Also, to go back to the search results page if I don't want to see that item anymore.
-success - As a user I want to see a success page that details the contact information with the renter and confirmation of the general information of the game I just rented. Also, to go back to the home page when I'm done.
-user-profile - As a user I want to check my profile information and be able to edit it, and add new games to my renting library. Also, to go back to the home page if I don't want to see the profile anymore.
-notifications - As a user I want to check my notifications in-depth, to see who has rented my game and games I have rented.
+homepage - As a user I want to see the adviced recipes and searching for a recipe that I like.In the navbar I can see my favourite recipes.
+Search Recipes - As a user I want to see the search results with a preview image, the title, the ingredients, a button to save my favorites recipes in my page "Favorites", and a link which,when clicked, makes you go to an external webpage with the desired recipe.
+Flag - As a user I want to see more information about the recipes by Country and when I click on a certain flag, I will be redirect in a page with all the recipes of that country.
+Favorites - As a user I can see in the "Favorites" page all the recipe I saved, and click a button to be redirect to an external webpage with the desired recipe.
+Meal Type - As a user, when I am in my homepage, I can click on the dropdown menu in the navbar to check all the meal types divided by hours of the day: "Breakfast, Lunch, Dinner, Snack, Teatime". When I click in one of the dropdown menu items, I will be redirect in a page with all the recipes of that Meal type. If I click the button to have more informations about the recipe, I will be redirect to an external webpage with the desired meal type.
 
 API routes (back-end)
-GET /
 
-renders login-signup.hbs
-GET /auth/signup
+GET: /signup,/login,/saveRecipe,/favorites,/index,/searchRecipes,/profile,/vegan,/vegetarian,/teatime,/snack,/lunch,/search
 
-redirects to / if user logged in
-renders add-signup.hbs
-POST /auth/signup
+POST:/signup,/login,/logout,/search,/mexican,/japanese,/italian,/indian,/french,/chinese,/british,/saveRecipe
 
-redirects to / if user logged in
-body:
-email
-password
-full name
-birthday
-gender
-address
-phone
-cardInfo
-typeOfCard
-cardNumber
-expDate
-CVV
-POST /auth/login
-
-redirects to / if user logged in
-body:
-email
-password
-POST /auth/logout
-
-body: (empty)
-GET /
-
-renders homepage.hbs (the profile preview + search form)
-POST /homepage (search action)
-
-body:
-game-title
-console
-GET /game-search-results
-
-renders game-search-results.hbs
-includes the list of games
-redirects to / if user presses button
-GET /rent-form/:id
-
-renders rent-form.hbs
-redirects to /game-search-results if user presses button
-POST /rent-form/:id
-
-body:
-days
-price update
-GET /success
-
-renders success.hbs
-redirects to / if user presses button
-GET /profile
-
-renders user-profile.hbs
-redirects to / if user presses button
-POST /profile (to edit profile)
-
-redirects to /add-signup (we reuse it but for edit purposes)
-body:
-email
-password
-full name
-birthday
-gender
-address
-phone
-cardInfo
-typeOfCard
-cardNumber
-expDate
-CVV
-POST /profile (to add game)
-
-body:
-game title
-console
-price
-max days of rent
-GET /profile
-
-renders user-profile.hbs updated
-redirects to / if user presses button
-GET /notifications
-
-renders notifications.hbs
-redirects to / if user presses button
-GET /success (for renter)
-
-renders success.hbs
-redirects to /notifications if user presses button
+HBS Pages
+breakfast.hbs, british.hbs, chinese.hbs, dinner.hbs, error.hbs, favorites.hbs, french.hbs, index.hbs, indian.hbs, italian.hbs, japanese.hbs, layout.hbs, login.hbs, lunch.hbs, mexican.hbs, not-found.hbs, profile.hbs, SearchRecipes.hbs, signup.hbs, snack.hbs, teatime.hbs, usa.hbs, vegan.hbs, vegetarian.hbs
 
 Models
-User new Schema ({ _id: , email: String, required: true, password: String, minlength: 6, maxlength: 12, fullName: String, required: true, maxlength: 20, birthday: Date, gender: String, ENUM[M,F,other] address: String, required: true, maxlength: 30, phone: String, required: true, minlength: 9, maxlength: 9, cardInfo: { typeOfCard: String, required: true, ENUM[Visa, MAsterCard, American Express, other] cardNumber: Number, required: true expDate: Date, required: true CVV: Number, required: true } })
+const userSchema = new Schema({
+  username: {
+    type: String,
+    unique: true,
+    required: true,
+  },
+  password: {
+    type: String,
+    required: true,
+  },
+  fullName: {
+    type: String,
+    required: true,
+  },
+  favoriteRecipes: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Recipe",
+    },
+  ],
+});
 
-RentRequest new Schema ({ _id: , gameOwnerRef: user._id, gameRef: gameForRent._id, gameRenterRef: user._id, days: Number, required: true, })
+const recipeSchema = new Schema({
+  name: {
+    type: String,
+    required: true,
+  },
+  image: String,
+  description: {
+    type: String,
+  },
+  url: String,
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
+  },
+});
 
-GameForRent new Schema ({ _id: , gameAPIref: API._id, request: [rentRequest._id,,,] price: Number, required: true, maxDays: Number, required: true isAvailable: Boolean, ** })
 
-
-Backlog
-Confirmation.hbs
-
-Summary of product
-Confirmation button
-User profile
-
-Wishlist
-Check who is renting my game in the games list
-Who favorited the games posted
-Success
-
-Contact button besides the 'go home' to call the other user
-Homepage
-
-Filter part on the search
-
-Links
-[Trello Link]
-
-Git
-[Repository Link]
-
-[Deploy Link]
-
+Heroku
+https://efood-ironhack.herokuapp.com/
 
 Slides
-[Google Slides Link]
+https://docs.google.com/presentation/d/1GZE8l028YJygDvhSTmeQ3GxuIYoEi2dOVOkKmOyGq28/edit?usp=sharing
