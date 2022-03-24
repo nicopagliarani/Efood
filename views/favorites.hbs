@@ -64,14 +64,11 @@
 <div class="card" style="width: 18rem;">
   <div class="d-flex justify-content-center">
 <h4 class="card-title">{{this.name}}</h4>
+<div class="col d-flex justify-content-center" style="margin: 45px;">
+    <h5>For more specific information :</h5>
 </div>
-  <img src="{{this.image}}" class="card-img-top" alt="Image">
-  <div class="card-body">
-    <div class="d-flex justify-content-center">
-    <a href="{{this.url}}" class="btn btn-success">See your recipe</a>
-    </div>
-  </div>
-</div>
+<div class="col d-flex justify-content-center" style="margin-bottom: 50px;">
+    <a href="{{this.recipe.url}}"><button type="button" class="btn btn-success">More Information</button></a>
 </div>
 {{/each}}
 </div>
