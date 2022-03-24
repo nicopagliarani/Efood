@@ -1,49 +1,21 @@
-<div class="signupbackground">
-<nav
-      id="navbar-profile"
-      class="navbar navbar-expand-lg navbar-light bg-secondary"
-    >
-      <div class="container-fluid">
-        <a class="navbar-brand logo" href="/profile"><img src="./images/EfoodLogo.png" style="width: 100px;" alt="logo"></a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" style="color: #ffffff"aria-current="page" href="/signup">Sign up</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" style="color: #ffffff"href="/login">Login</a>
-            </li>
-            </ul>
-         </div>
-      </div>
-    </nav>
-    
-<div class="container center_div bg-secondary p-2 text-dark bg-opacity-75 signupform"  >
+<div class="backgroundLog">
+<div class="container center_div bg-secondary p-2 text-dark bg-opacity-75 signupform log" style="margin-top: 15%;" >
 <form action="/signup" method="post">
   <div class="mb-3">
     <label style="color: #ffffff"for="exampleInputEmail1" class="form-label">Your Username</label>
     <input name="username" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your user name">
     </div>
       <div class="mb-3">
-    <label style="color: #ffffff" class="form-label">Full name</label>
-    <input name="fullName" type="text" class="form-control" id="fullnameId" placeholder="Enter your full name">
+    <label style="color: #ffffff" class="form-label">Name</label>
+    <input name="fullName" type="text" class="form-control" id="fullnameId" placeholder="Enter your name">
   </div>
   <div class="mb-3">
     <label style="color: #ffffff"for="exampleInputPassword1" class="form-label">Password</label>
     <input name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter your password">
   </div>
+  <div class="infoLog"><a href="/login">Already have an account ? Login</a></div>
 <div class="col d-flex justify-content-center">
   <a href="/login"> <button type="submit" class="btn btn-success">Sign up</button></a>
   </div>
   </div>
+</div>
