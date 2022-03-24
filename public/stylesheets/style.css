@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  font-family:sans-serif;
 }
 
 a {
@@ -92,3 +93,4 @@ h1 {
   background-size: cover;
   background-repeat: no-repeat;
 }
+
