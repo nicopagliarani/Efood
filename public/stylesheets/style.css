@@ -132,8 +132,3 @@ a {
   margin-right: 10px;
   font-size: 1.2rem;
 }
-
-.navBarScroolDown {
-  position: fixed;
-  width: 100vw;
-}
